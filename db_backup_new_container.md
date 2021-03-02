@@ -21,8 +21,12 @@ docker run --rm -it -v /temp/tmp-config-dir/:/tmp/ -v /etc/contrail/ssl/controll
 cd /usr/lib/python2.7/site-packages/cfgm_common
 python db_json_exim.py --export-to /tmp/db-dump.json --api-conf /temp/tmp-config-dir/contrail-api.conf
 ```
+5. Run below commands to check DB inconsistenices
 ```
-python db_manage.py --api-conf /etc/contrail/contrail-api.conf --verbose check_virtual_networks_id
+- Displays the list of all Object id to be cleaned(dry-run).
+python db_manage.py --api-conf /etc/contrail/contrail-api.conf clean
+
+- Deletes all stale object id in DB's with(--execute)
 python db_manage.py --api-conf /etc/contrail/contrail-api.conf \
-            check --log_file /root/db_manage_check_op_cluster
+            --execute check
 ```

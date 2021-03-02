@@ -23,6 +23,8 @@ python db_json_exim.py --export-to /tmp/db-dump.json --api-conf /temp/tmp-config
 ```
 5. Run below commands to check DB inconsistenices
 ```
+docker exec -it <CONTAINER_ID_CONFIG_API_1> bash
+cd  /usr/lib/python2.7/site-packages/vnc_cfg_api_server
 - Displays the list of all Object id to be cleaned(dry-run).
 python db_manage.py --api-conf /etc/contrail/contrail-api.conf clean
 
